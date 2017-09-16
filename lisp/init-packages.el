@@ -28,7 +28,8 @@
 			  iedit
 			  helm-ag
 			  window-numbering
-			  powerline
+			  ;;powerline
+			  which-key
 			  ;evil
 			  )  "Default packages")
 
@@ -47,6 +48,15 @@
         (package-install pkg))))
 
 ;; ------------------------------------------------------------------------------------------------------------------------------
+
+;; Config to Powerline which from Git
+(add-to-list 'load-path "~/.emacs.d/vendor/emacs-powerline/")
+(setq ns-use-srgb-colorspace nil)
+(require 'powerline)
+(setq powerline-arrow-shape 'arrow14)
+(custom-set-faces
+ '(mode-line ((t (:foreground "#030303" :background "#bdbdbd" :box nil))))
+ '(mode-line-inactive ((t (:foreground "#f9f9f9" :background "#666666" :box nil)))))
 
 ;; Config Exec-path-from shell
 (when (memq window-system '(mac ns))
@@ -103,7 +113,13 @@
 (window-numbering-mode t)
 
 ;; Enable Powerline
-(require 'powerline)
-(powerline-default-theme )
+;;(require 'powerline)
+;;(powerline-default-theme)
+
+
+;; Enable which-keu mode
+(which-key-mode t)
+(setq which-key-side-window-location 'right)
+(setq which-key-idle-delay 1.0)
 
 (provide 'init-packages)

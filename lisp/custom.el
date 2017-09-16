@@ -6,7 +6,7 @@
  '(company-idle-delay 0)
  '(package-selected-packages
    (quote
-    (powerline window-numbering company monokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode js2-refactor expand-region iedit helm-ag)))
+    (which-key powerline window-numbering company monokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode js2-refactor expand-region iedit helm-ag)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
  
