@@ -27,6 +27,9 @@
 			  expand-region
 			  iedit
 			  helm-ag
+			  window-numbering
+			  powerline
+			  ;evil
 			  )  "Default packages")
 
 (setq package-selected-packages isalas/packages)
@@ -68,9 +71,6 @@
 	 ("\\.html\\'" . web-mode))
        auto-mode-alist))
 
-;; Enable Company-mode
-(global-company-mode t)
-
 ;; Theme
 (load-theme 'monokai t)
 
@@ -90,10 +90,20 @@
 ;; Config to expand-region
 (require 'expand-region)
 
+;; Enable Company-mode
+(global-company-mode t)
+
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
   (define-key company-active-map (kbd "M-p") nil)
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
+;; Enable windownumbering
+(window-numbering-mode t)
+
+;; Enable Powerline
+(require 'powerline)
+(powerline-default-theme )
 
 (provide 'init-packages)
