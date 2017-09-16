@@ -17,6 +17,11 @@
 (setq recentf-max-menu-items 25)
 
 ;; Enable Show-paren-mode
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 ;; Delete-selection-mode
@@ -41,5 +46,7 @@
 (put 'dired-find-alternate-file 'disabled nil)
 (require 'dired-x)
 (setq dired-dwim-target t)
+
+(set-language-environment "UTF-8")
 
 (provide 'init-better-defaults)

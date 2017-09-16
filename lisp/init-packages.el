@@ -22,6 +22,11 @@
 			  exec-path-from-shell
 			  popwin
 			  reveal-in-osx-finder
+			  web-mode
+			  js2-refactor
+			  expand-region
+			  iedit
+			  helm-ag
 			  )  "Default packages")
 
 (setq package-selected-packages isalas/packages)
@@ -59,7 +64,8 @@
 ;; Auto-mode-alist
 (setq auto-mode-alist
       (append
-       '(("\\.js\\'" . js2-mode))
+       '(("\\.js\\'" . js2-mode)
+	 ("\\.html\\'" . web-mode))
        auto-mode-alist))
 
 ;; Enable Company-mode
@@ -75,5 +81,19 @@
 ;; Config nodejs-repl
 (require 'nodejs-repl)
 
+;; Config to Web-mode
+(add-hook 'web-mode-hook 'isalas/web-mode-indent-setup)
+
+;; Config to js2-refactor
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+
+;; Config to expand-region
+(require 'expand-region)
+
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 (provide 'init-packages)

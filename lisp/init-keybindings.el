@@ -20,5 +20,24 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+(global-set-key (kbd "<f1>") 'open-my-init-file)
+
+(global-set-key (kbd "C-c t i") 'isalas/switch-web-indent)
+
+(js2r-add-keybindings-with-prefix "C-c C-m")
+
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
+(global-set-key (kbd  "C-=") 'er/expand-region)
+
+(global-set-key (kbd "C-c r") 'org-capture)
+
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 (provide 'init-keybindings)
